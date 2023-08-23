@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c2p8e37bgqrh" path="res://Assets/Testplayer.png" id="1_umkcs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ekbmn"]
-height = 58.0
+radius = 2.0
+height = 16.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7fyo0"]
 animations = [{
@@ -21,6 +22,7 @@ animations = [{
 script = ExtResource("1_q4f8l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
 shape = SubResource("CapsuleShape2D_ekbmn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

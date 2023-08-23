@@ -3,16 +3,20 @@ extends Node
 var startTimer = true
 var timerTime = 0
 
-func _process(delta):
+var countdownTimer = 30
+var timerRunning = true
+
+func _physics_process(delta):
 	if (startTimer):
 		timerTime += delta
-		var minutes = fmod(timerTime, 60*60) / 60
-		var seconds = fmod(timerTime,60)
-		var secondsDeep = int(round(timerTime))
-		var timePassed = "%02d:%02d" % [minutes,seconds]
-		$Control/MarginWrapper/MarginContainer/TimeContainer/TimeValue.text = str(timePassed)
-		deep(secondsDeep)
+		var seconds_deep = int(round(timerTime))
+		$Control/MarginWrapper/MarginContainer/DeepContainer/DeepValue.text = str(seconds_deep) + " m"
 
-func deep(time):
-	$Control/MarginWrapper/MarginContainer/DeepContainer/DeepValue.text = str(time) + " m"
-
+	if (timerRunning):
+		countdownTimer -= delta
+		var seconds = int(round(countdownTimer))
+		$Control/MarginWrapper/MarginContainer/TimeContainer/TimeValue.text = str(seconds) + " s"
+		
+		if (countdownTimer <= 0):
+			countdownTimer = 0
+			timerRunning = false
