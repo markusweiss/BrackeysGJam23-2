@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var countdown_timer = get_node("/root/Main/UI_Top/")
+
 var rng = RandomNumberGenerator.new()
 var rand_int = rng.randi_range(50, 240)
 var target_position := Vector2(0, 100)
@@ -23,4 +25,5 @@ func _process(delta):
 		
 
 func _on_body_entered(body):
+	countdown_timer.countdownTimer+=1
 	queue_free()

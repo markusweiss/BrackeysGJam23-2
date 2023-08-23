@@ -3,7 +3,7 @@ extends Node
 var startTimer = true
 var timerTime = 0
 
-var countdownTimer = 30
+var countdownTimer = 10
 var timerRunning = true
 
 func _physics_process(delta):
@@ -14,9 +14,11 @@ func _physics_process(delta):
 
 	if (timerRunning):
 		countdownTimer -= delta
+		
 		var seconds = int(round(countdownTimer))
 		$Control/MarginWrapper/MarginContainer/TimeContainer/TimeValue.text = str(seconds) + " s"
 		
 		if (countdownTimer <= 0):
 			countdownTimer = 0
 			timerRunning = false
+			get_tree(). paused = true
