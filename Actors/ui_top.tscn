@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d0rsktbljjsht"]
+
+[node name="UI_Top" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="TimeContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Time" type="Label" parent="Control/MarginContainer/TimeContainer"]
+layout_mode = 2
+text = "Time: "
+
+[node name="TimeValue" type="Label" parent="Control/MarginContainer/TimeContainer"]
+layout_mode = 2
+text = "1:00"
+
+[node name="DeepContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Deep" type="Label" parent="Control/MarginContainer/DeepContainer"]
+layout_mode = 2
+text = "Depth: "
+
+[node name="DeepValue" type="Label" parent="Control/MarginContainer/DeepContainer"]
+layout_mode = 2
+text = "100"
