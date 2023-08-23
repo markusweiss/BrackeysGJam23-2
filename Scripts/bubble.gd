@@ -1,7 +1,9 @@
-extends Node2D
+extends Area2D
 
-var target_position := Vector2(0, 50)
-var start_position := Vector2(140, 0)  # Ändere die X-Koordinate hier
+var rng = RandomNumberGenerator.new()
+var rand_int = rng.randi_range(50, 240)
+var target_position := Vector2(0, 100)
+var start_position := Vector2(rand_int, 0)
 var amplitude := 20
 var period := 2.0
 var elapsed_time := 0.0
@@ -16,3 +18,4 @@ func _process(delta):
 
 	if position.y <= target_position.y:
 		queue_free()
+		
