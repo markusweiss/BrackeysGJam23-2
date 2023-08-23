@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cppx86bhbcaw"]
+[gd_scene load_steps=6 format=3 uid="uid://cppx86bhbcaw"]
 
 [ext_resource type="PackedScene" uid="uid://bmfb0jqooabd0" path="res://Actors/player.tscn" id="1_ddhx4"]
 [ext_resource type="Texture2D" uid="uid://ck8rce8gjm62d" path="res://Assets/Testbackground.png" id="2_c6phr"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_hslj8"]
 [ext_resource type="PackedScene" uid="uid://d0rsktbljjsht" path="res://Actors/ui_top.tscn" id="4_shrge"]
+[ext_resource type="PackedScene" uid="uid://bdw1eps6mnytm" path="res://Actors/bubbles.tscn" id="5_0aopo"]
 
 [node name="Main" type="Node"]
 
@@ -21,3 +22,6 @@ position = Vector2(160, 320)
 texture = ExtResource("2_c6phr")
 
 [node name="Node" parent="." instance=ExtResource("4_shrge")]
+
+[node name="Node2D" parent="." instance=ExtResource("5_0aopo")]
+position = Vector2(159, 733)

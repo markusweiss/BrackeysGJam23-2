@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://d0rsktbljjsht"]
+[gd_scene load_steps=2 format=3 uid="uid://d0rsktbljjsht"]
+
+[ext_resource type="Script" path="res://Scripts/ui_top.gd" id="1_vlyvk"]
 
 [node name="UI_Top" type="Node"]
+script = ExtResource("1_vlyvk")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(320, 0)

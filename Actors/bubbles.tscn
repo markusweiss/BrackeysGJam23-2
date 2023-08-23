@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdw1eps6mnytm"]
+
+[ext_resource type="Texture2D" uid="uid://5460xtp4b4v6" path="res://Assets/Testbubble.png" id="1_6puov"]
+[ext_resource type="Script" path="res://Scripts/bubbles.gd" id="1_x5ijw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_co0y2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6puov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_x5ijw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_co0y2")
+frame_progress = 0.738262
