@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8xvtxve5fb1o"]
+
+[ext_resource type="Script" path="res://Scripts/start.gd" id="1_d4llv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy8qv"]
+content_margin_left = 8.0
+content_margin_top = 16.0
+content_margin_right = 8.0
+content_margin_bottom = 16.0
+bg_color = Color(0.0666667, 0.294118, 0.443137, 1)
+
+[node name="StartCanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_d4llv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fy8qv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "   quit   "
+
+[node name="AgainButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = " start game "
+
+[node name="InfoText" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "use <- or -> arrow to get the bubbles
+ and catch the air out of it. 
+Try to get as deep as you can."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/AgainButton" to="." method="_on_again_button_pressed"]

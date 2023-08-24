@@ -1,8 +1,5 @@
 extends CanvasLayer
 
-func _ready():
-	$MarginContainer/VBoxContainer/PanelContainer/Meters.text = str(Global.endingDeep) + " m"
-
 
 func _on_quit_button_pressed():
 	get_tree().quit()
