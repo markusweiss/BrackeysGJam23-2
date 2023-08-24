@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xsag2xph7gy0"]
+[gd_scene load_steps=6 format=3 uid="uid://xsag2xph7gy0"]
 
 [ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_hq73q"]
 [ext_resource type="Texture2D" uid="uid://5460xtp4b4v6" path="res://Assets/Testbubble.png" id="2_r7inw"]
+[ext_resource type="AudioStream" uid="uid://d2tmmquystcxp" path="res://Assets/blub.mp3" id="3_el3t3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ae362"]
 animations = [{
@@ -28,5 +29,8 @@ sprite_frames = SubResource("SpriteFrames_ae362")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_jdrie")
+
+[node name="blub" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_el3t3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

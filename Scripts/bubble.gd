@@ -26,4 +26,6 @@ func _process(delta):
 
 func _on_body_entered(body):
 	countdown_timer.countdownTimer+=1
+	$blub.play()
+	await get_tree().create_timer(0.1).timeout
 	queue_free()

@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cppx86bhbcaw"]
+[gd_scene load_steps=8 format=3 uid="uid://cppx86bhbcaw"]
 
 [ext_resource type="PackedScene" uid="uid://bmfb0jqooabd0" path="res://Actors/player.tscn" id="1_ddhx4"]
 [ext_resource type="Texture2D" uid="uid://ck8rce8gjm62d" path="res://Assets/Testbackground.png" id="2_c6phr"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_hslj8"]
 [ext_resource type="PackedScene" uid="uid://d0rsktbljjsht" path="res://Actors/ui_top.tscn" id="4_shrge"]
 [ext_resource type="Script" path="res://Scripts/CreateBubble.gd" id="5_5vrsx"]
+[ext_resource type="AudioStream" uid="uid://oiigcyok5e22" path="res://Assets/watersong.mp3" id="6_wri8v"]
+[ext_resource type="Script" path="res://Scripts/AudioStreamPlayer.gd" id="7_2rr37"]
 
 [node name="Main" type="Node"]
 
@@ -29,4 +31,10 @@ script = ExtResource("5_5vrsx")
 [node name="BubbleTimer" type="Timer" parent="CreateBubble"]
 autostart = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_wri8v")
+volume_db = -3.545
+script = ExtResource("7_2rr37")
+
 [connection signal="timeout" from="CreateBubble/BubbleTimer" to="CreateBubble" method="_on_bubble_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
