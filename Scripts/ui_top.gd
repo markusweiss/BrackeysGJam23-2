@@ -1,15 +1,16 @@
 extends Node
 
 var startTimer = true
-var timerTime = 0
+var timerTime = Global.timerTime
 
-var countdownTimer = 10
+var countdownTimer = Global.countdownTimer
 var timerRunning = true
 
 func _physics_process(delta):
 	if (startTimer):
 		timerTime += delta
 		var seconds_deep = int(round(timerTime))
+		Global.endingDeep = seconds_deep
 		$Control/MarginWrapper/MarginContainer/DeepContainer/DeepValue.text = str(seconds_deep) + " m"
 
 	if (timerRunning):
@@ -21,4 +22,4 @@ func _physics_process(delta):
 		if (countdownTimer <= 0):
 			countdownTimer = 0
 			timerRunning = false
-			get_tree(). paused = true
+			get_tree().change_scene_to_file("res://Actors/death.tscn")
