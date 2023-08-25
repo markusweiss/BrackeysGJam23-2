@@ -26,6 +26,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	countdown_timer.countdownTimer+=1
+	$AnimatedSprite2D.play("explode")
 	$blub.play()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
