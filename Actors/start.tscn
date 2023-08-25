@@ -23,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -34,30 +35,48 @@ custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fy8qv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="InfoText" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "This little game ist for Brackeys
+GameJam 23-2. 
+It's a very simple game,
+hope you have
+fun for a few minutes.
+
+All assets such as sounds
+and pixel graphics
+are self-made
+with Aseprite and Garageband.
+
+Use the left or right arrow
+to get the bubbles and 
+catch the air out of it.
+Avoid the green once!
+
+Try to get as deep as you can.
+
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_constants/h_separation = 0
 text = "   quit   "
 
-[node name="AgainButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="AgainButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 text = " start game "
 
-[node name="InfoText" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "use the left or right arrow
-to get the bubbles and 
-catch the air out of it. 
-Try to get as deep as you can.
-"
-horizontal_alignment = 1
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/AgainButton" to="." method="_on_again_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/AgainButton" to="." method="_on_again_button_pressed"]

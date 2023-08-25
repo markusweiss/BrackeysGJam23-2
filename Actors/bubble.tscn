@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xsag2xph7gy0"]
+[gd_scene load_steps=11 format=3 uid="uid://xsag2xph7gy0"]
 
 [ext_resource type="Script" path="res://Scripts/bubble.gd" id="1_hq73q"]
 [ext_resource type="Texture2D" uid="uid://ba072hknm1ncu" path="res://Assets/bubble/bubble1.png" id="2_j1ag5"]
@@ -8,9 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://buugh64b7xrkn" path="res://Assets/bubble/bubble4.png" id="5_1j44b"]
 [ext_resource type="Texture2D" uid="uid://curkkrb828u2x" path="res://Assets/bubble/bubble5.png" id="6_isry3"]
 [ext_resource type="Texture2D" uid="uid://1h2aqafwhxiq" path="res://Assets/bubble/bubble6.png" id="7_ikri1"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t2l4y"]
-load_path = "res://.godot/imported/bubble7.png-134466ccb5d318de505c95b3f39c9c58.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ae362"]
 animations = [{
@@ -37,9 +34,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_ikri1")
-}, {
-"duration": 1.0,
-"texture": SubResource("CompressedTexture2D_t2l4y")
 }],
 "loop": false,
 "name": &"explode",
