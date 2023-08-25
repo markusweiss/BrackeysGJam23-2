@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bmfb0jqooabd0"]
+[gd_scene load_steps=33 format=3 uid="uid://bmfb0jqooabd0"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_q4f8l"]
 [ext_resource type="Texture2D" uid="uid://c70fmfp0krv3b" path="res://Assets/player/player1.png" id="2_2deop"]
@@ -125,6 +125,12 @@ animations = [{
 "speed": 28.0
 }]
 
+[sub_resource type="Curve" id="Curve_utost"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_q4f8l")
 
@@ -137,3 +143,17 @@ sprite_frames = SubResource("SpriteFrames_ria65")
 autoplay = "default"
 frame = 27
 frame_progress = 1.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -28)
+amount = 4
+emission_shape = 2
+emission_sphere_radius = 1.0
+spread = 0.0
+gravity = Vector2(0, -200)
+angular_velocity_min = 117.67
+angular_velocity_max = 117.67
+angular_velocity_curve = SubResource("Curve_utost")
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(0.403922, 0.560784, 1, 1)
