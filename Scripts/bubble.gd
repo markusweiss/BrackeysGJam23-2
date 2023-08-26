@@ -18,9 +18,11 @@ func _ready():
 func _process(delta):
 	elapsed_time += delta
 	var x_offset = amplitude * sin(2 * PI * elapsed_time / period)
-	position = start_position + Vector2(x_offset, position.y - delta * 130)
+	position = start_position + Vector2(x_offset, position.y - delta * 140)
 
 	if position.y <= target_position.y:
+		$AnimatedSprite2D.play("explode")
+		await get_tree().create_timer(0.2).timeout
 		queue_free()
 		
 

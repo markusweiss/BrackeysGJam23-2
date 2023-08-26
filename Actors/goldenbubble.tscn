@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://cauxohgpphxjf"]
+
+[ext_resource type="Script" path="res://Scripts/goldenbubble.gd" id="1_jogqw"]
+[ext_resource type="Texture2D" uid="uid://dpfti4ly1hgbi" path="res://Assets/bubble/goldenbubble1.png" id="2_ttt15"]
+[ext_resource type="Texture2D" uid="uid://b4g2edsyu4ae1" path="res://Assets/bubble/goldenbubble2.png" id="3_shcfb"]
+[ext_resource type="Texture2D" uid="uid://cyecji0ow55dd" path="res://Assets/bubble/goldenbubble3.png" id="4_r1m8w"]
+[ext_resource type="Texture2D" uid="uid://dsag4vxvhlplu" path="res://Assets/bubble/goldenbubble4.png" id="5_x3gjl"]
+[ext_resource type="Texture2D" uid="uid://bo5c7mi3wm4nm" path="res://Assets/bubble/goldenbubble5.png" id="6_x4e8h"]
+[ext_resource type="Texture2D" uid="uid://clt25mpx7gmxr" path="res://Assets/bubble/goldenbubble6.png" id="7_3yut8"]
+[ext_resource type="AudioStream" uid="uid://d2tmmquystcxp" path="res://Assets/blub.mp3" id="8_n54et"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ae362"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ttt15")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_shcfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r1m8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_x3gjl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x4e8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3yut8")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jdrie"]
+radius = 8.0
+
+[node name="GoldenBubble" type="Area2D"]
+position = Vector2(53, 575)
+script = ExtResource("1_jogqw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 107)
+sprite_frames = SubResource("SpriteFrames_ae362")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 107)
+shape = SubResource("CircleShape2D_jdrie")
+
+[node name="blub" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_n54et")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
