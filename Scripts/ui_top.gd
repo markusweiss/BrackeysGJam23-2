@@ -17,8 +17,12 @@ func _physics_process(delta):
 		countdownTimer -= delta
 		
 		var seconds = int(round(countdownTimer))
-		$Control/MarginWrapper/MarginContainer/TimeContainer/TimeValue.text = str(seconds) + " s"
 		
+		#$Control/MarginWrapper/MarginContainer/TimeContainer/TimeValue.text = str(seconds) + " s"
+		$Control/MarginWrapper/MarginContainer/TimeContainer/AirBar.value = seconds
+		#if (countdownTimer <= 25):
+		#	print($Control/MarginWrapper/MarginContainer/TimeContainer/AirBar.get_theme_stylebox("fill"))
+						
 		if (countdownTimer <= 0):
 			countdownTimer = 0
 			timerRunning = false

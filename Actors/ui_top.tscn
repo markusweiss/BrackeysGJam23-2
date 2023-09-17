@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0rsktbljjsht"]
+[gd_scene load_steps=4 format=3 uid="uid://d0rsktbljjsht"]
 
 [ext_resource type="Script" path="res://Scripts/ui_top.gd" id="1_vlyvk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyu24"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0elrw"]
+bg_color = Color(0.129412, 0.588235, 0.952941, 1)
 
 [node name="UI_Top" type="Node"]
 script = ExtResource("1_vlyvk")
@@ -37,11 +42,23 @@ size_flags_horizontal = 8
 
 [node name="Time" type="Label" parent="Control/MarginWrapper/MarginContainer/TimeContainer"]
 layout_mode = 2
-text = "Time: "
+size_flags_horizontal = 0
+text = "Air:"
 
 [node name="TimeValue" type="Label" parent="Control/MarginWrapper/MarginContainer/TimeContainer"]
+visible = false
 layout_mode = 2
 text = "1:00"
+
+[node name="AirBar" type="ProgressBar" parent="Control/MarginWrapper/MarginContainer/TimeContainer"]
+custom_minimum_size = Vector2(60, 12)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxEmpty_gyu24")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0elrw")
+step = 1.0
+value = 80.0
+show_percentage = false
 
 [node name="DeepContainer" type="HBoxContainer" parent="Control/MarginWrapper/MarginContainer"]
 layout_mode = 2
