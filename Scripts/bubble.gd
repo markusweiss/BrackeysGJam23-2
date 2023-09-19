@@ -13,7 +13,7 @@ var elapsed_time := 0.0
 
 func _ready():
 	start_position += Vector2(amplitude, 0)
-
+	
 
 func _process(delta):
 	elapsed_time += delta
@@ -28,6 +28,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	countdown_timer.countdownTimer+=1
+
 	$AnimatedSprite2D.play("explode")
 	$blub.play()
 	await get_tree().create_timer(0.2).timeout
