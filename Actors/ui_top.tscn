@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0rsktbljjsht"]
+[gd_scene load_steps=5 format=3 uid="uid://d0rsktbljjsht"]
 
 [ext_resource type="Script" path="res://Scripts/ui_top.gd" id="1_vlyvk"]
+[ext_resource type="Script" path="res://Scripts/AirBar.gd" id="2_wixud"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyu24"]
 
@@ -59,6 +60,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_0elrw")
 step = 1.0
 value = 80.0
 show_percentage = false
+script = ExtResource("2_wixud")
 
 [node name="DeepContainer" type="HBoxContainer" parent="Control/MarginWrapper/MarginContainer"]
 layout_mode = 2

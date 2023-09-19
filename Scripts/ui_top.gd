@@ -20,8 +20,8 @@ func _physics_process(delta):
 		
 		#$Control/MarginWrapper/MarginContainer/TimeContainer/TimeValue.text = str(seconds) + " s"
 		$Control/MarginWrapper/MarginContainer/TimeContainer/AirBar.value = seconds
-		#if (countdownTimer <= 25):
-		#	print($Control/MarginWrapper/MarginContainer/TimeContainer/AirBar.get_theme_stylebox("fill"))
+		$Control/MarginWrapper/MarginContainer/TimeContainer/AirBar.setProgressBarValue(seconds) 
+		#print($Control/MarginWrapper/MarginContainer/TimeContainer/AirBar.get_theme_stylebox("fill"))
 						
 		if (countdownTimer <= 0):
 			countdownTimer = 0
