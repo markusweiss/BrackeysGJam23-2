@@ -9,6 +9,7 @@ var start_position := Vector2(rand_int, 0)
 var amplitude := 30
 var period := 2
 var elapsed_time := 0.0
+var soundPlayed = false
 
 
 func _ready():
@@ -27,8 +28,11 @@ func _process(delta):
 		
 
 func _on_body_entered(body):
-	countdown_timer.countdownTimer+=5
+	$CollisionShape2D.disabled = true
 	$AnimatedSprite2D.play("explode")
-	$blub.play()
+	if(!soundPlayed):
+		$blub.play()
+		soundPlayed = true
 	await get_tree().create_timer(0.2).timeout
+	countdown_timer.countdownTimer+=5
 	queue_free()
