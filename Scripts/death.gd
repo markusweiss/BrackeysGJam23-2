@@ -1,8 +1,12 @@
 extends CanvasLayer
 
 func _ready():
-	$MarginContainer/VBoxContainer/PanelContainer/Meters.text = str(Global.endingDeep) + " m"
-
+	%Meters.text = str(Global.endingDeep) + " m"
+	
+	if (Global.endingDeep > Global.deepestDive):
+		Global.deepestDive = Global.endingDeep
+	
+	%MetersDeep.text = str(Global.deepestDive) + " m"
 
 func _on_quit_button_pressed():
 	get_tree().quit()
