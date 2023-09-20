@@ -78,7 +78,7 @@ disabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qt4qa")
 autoplay = "default"
-frame_progress = 0.678817
+frame_progress = 0.684762
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(0, -28)

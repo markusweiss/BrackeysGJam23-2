@@ -5,8 +5,10 @@ const SPEED = 300.0
 const STOP_LEFT = 40
 const STOP_RIGHT = 280
 
+
 func _ready():
 	$CollisionShape2D.disabled = false
+
 
 func _physics_process(delta):
 	var direction = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -19,3 +21,4 @@ func _physics_process(delta):
 	move_and_slide()
 
 	position.x = clamp(position.x, STOP_LEFT, STOP_RIGHT)
+	
