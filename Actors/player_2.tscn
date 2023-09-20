@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cilbbodgndgdk"]
+[gd_scene load_steps=17 format=3 uid="uid://cilbbodgndgdk"]
 
 [ext_resource type="Texture2D" uid="uid://cofmqo5qb65bb" path="res://Assets/player/player2_1.png" id="1_1ltj6"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_uwtxl"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cn5hmsyj3qvux" path="res://Assets/player/player2_12.png" id="13_42pvg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3d735"]
-size = Vector2(5, 8)
+size = Vector2(5, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qt4qa"]
 animations = [{
@@ -58,18 +58,38 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 11.0
+"speed": 8.0
 }]
+
+[sub_resource type="Curve" id="Curve_1lm0a"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="player2" type="CharacterBody2D"]
 script = ExtResource("1_uwtxl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 26)
+position = Vector2(-0.5, 26.5)
 shape = SubResource("RectangleShape2D_3d735")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qt4qa")
 autoplay = "default"
-frame_progress = 0.851086
+frame_progress = 0.678817
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -28)
+amount = 4
+emission_shape = 2
+emission_sphere_radius = 1.0
+spread = 0.0
+gravity = Vector2(0, -200)
+angular_velocity_min = 117.67
+angular_velocity_max = 117.67
+angular_velocity_curve = SubResource("Curve_1lm0a")
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(0.12549, 0.686275, 0.427451, 1)

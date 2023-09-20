@@ -32,7 +32,7 @@ func _on_body_entered(body):
 		soundPlayed = true
 		
 	await get_tree().create_timer(0.2).timeout
-	countdown_timer.countdownTimer -= 1
+	countdown_timer.countdownTimer -= 2
 	queue_free()
 
 func _disable_collision_and_play_animation():
