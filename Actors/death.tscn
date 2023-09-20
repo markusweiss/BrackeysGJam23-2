@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://do8pcmpu1dmwq"]
+[gd_scene load_steps=6 format=3 uid="uid://do8pcmpu1dmwq"]
 
 [ext_resource type="Script" path="res://Scripts/death.gd" id="1_rig46"]
+[ext_resource type="Texture2D" uid="uid://cofmqo5qb65bb" path="res://Assets/player/player2_1.png" id="2_ebb44"]
+[ext_resource type="Texture2D" uid="uid://cnua0330u0uht" path="res://Assets/player/player2_shadow.png" id="3_3ulmm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy8qv"]
 content_margin_left = 8.0
@@ -8,6 +10,25 @@ content_margin_top = 16.0
 content_margin_right = 8.0
 content_margin_bottom = 16.0
 bg_color = Color(0.0666667, 0.294118, 0.443137, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lweur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ebb44")
+}],
+"loop": true,
+"name": &"free",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3ulmm")
+}],
+"loop": true,
+"name": &"shadow",
+"speed": 5.0
+}]
 
 [node name="DeathCanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_rig46")
@@ -30,7 +51,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 250)
+custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -82,6 +103,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "102 m"
 horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2"]
+position = Vector2(91, 88)
+sprite_frames = SubResource("SpriteFrames_lweur")
+animation = &"shadow"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/AgainButton" to="." method="_on_again_button_pressed"]

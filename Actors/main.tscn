@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cppx86bhbcaw"]
+[gd_scene load_steps=12 format=3 uid="uid://cppx86bhbcaw"]
 
 [ext_resource type="PackedScene" uid="uid://cilbbodgndgdk" path="res://Actors/player_2.tscn" id="1_0ekvu"]
 [ext_resource type="PackedScene" uid="uid://bmfb0jqooabd0" path="res://Actors/player.tscn" id="1_ddhx4"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_uvgnh"]
 [ext_resource type="Script" path="res://Scripts/ParallaxBackground.gd" id="2_hslj8"]
 [ext_resource type="Texture2D" uid="uid://coj8xu4pkhaq2" path="res://Assets/background.png" id="4_6omb1"]
 [ext_resource type="PackedScene" uid="uid://d0rsktbljjsht" path="res://Actors/ui_top.tscn" id="4_shrge"]
@@ -12,8 +13,10 @@
 [ext_resource type="Script" path="res://Scripts/AudioStreamPlayer.gd" id="7_2rr37"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_uvgnh")
 
 [node name="Player2" parent="." instance=ExtResource("1_0ekvu")]
+visible = false
 position = Vector2(166, 200)
 
 [node name="UI_Top" parent="." instance=ExtResource("4_shrge")]

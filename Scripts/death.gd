@@ -7,6 +7,9 @@ func _ready():
 		Global.deepestDive = Global.endingDeep
 	
 	%MetersDeep.text = str(Global.deepestDive) + " m"
+	
+	if(Global.deepestDive > Global.tier1):
+		$MarginContainer/VBoxContainer/PanelContainer/VBoxContainer2/AnimatedSprite2D.play("free")
 
 func _on_quit_button_pressed():
 	get_tree().quit()

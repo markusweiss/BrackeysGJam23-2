@@ -28,11 +28,15 @@ func _process(delta):
 		
 
 func _on_body_entered(body):
-	$CollisionShape2D.disabled = true
-	$AnimatedSprite2D.play("explode")
-	if(!soundPlayed):
+	call_deferred("_disable_collision_and_play_animation")
+	if (!soundPlayed):
 		$blub.play()
 		soundPlayed = true
+		
 	await get_tree().create_timer(0.2).timeout
-	countdown_timer.countdownTimer+=5
+	countdown_timer.countdownTimer += 4
 	queue_free()
+
+func _disable_collision_and_play_animation():
+	$CollisionShape2D.disabled = true
+	$AnimatedSprite2D.play("explode")

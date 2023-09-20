@@ -137,6 +137,7 @@ script = ExtResource("1_q4f8l")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 25.5)
 shape = SubResource("RectangleShape2D_44uxu")
+disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ria65")
