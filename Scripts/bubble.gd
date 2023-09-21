@@ -34,6 +34,7 @@ func _on_body_entered(body):
 		
 	await get_tree().create_timer(0.2).timeout
 	countdown_timer.countdownTimer += 1
+	Global.bubbleCount +=1
 	queue_free()
 
 func _disable_collision_and_play_animation():

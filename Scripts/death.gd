@@ -13,10 +13,13 @@ func _ready():
 		$HBoxContainer/PanelContainer2/arch_worm.play("arch_active")
 
 	if (Global.endingDeep <= Global.minMeter or Global.minMeterArch):
-		print(Global.minMeterArch)
 		Global.minMeterArch = true
-		print(Global.minMeterArch)
 		$HBoxContainer/PanelContainer/arch_dead.play("dead_active")
+	
+	if (Global.bubbleCount >= 500):
+		$HBoxContainer/PanelContainer3/arch_bubble.play("bubble_active")
+	
+	print(Global.bubbleCount)
 	
 func _on_quit_button_pressed():
 	get_tree().quit()
