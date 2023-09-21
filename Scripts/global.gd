@@ -8,3 +8,4 @@ var tier1 = 100
 var minMeterArch = false
 var minMeter = 16
 var bubbleCount = 0
+var goldenBubbleCount = 0

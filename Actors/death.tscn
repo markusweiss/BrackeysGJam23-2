@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://do8pcmpu1dmwq"]
+[gd_scene load_steps=18 format=3 uid="uid://do8pcmpu1dmwq"]
 
 [ext_resource type="Script" path="res://Scripts/death.gd" id="1_rig46"]
 [ext_resource type="Texture2D" uid="uid://cofmqo5qb65bb" path="res://Assets/player/player2_1.png" id="2_ebb44"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dugcsq6b2px04" path="res://Assets/player/arch_dead_active.png" id="4_jnr3j"]
 [ext_resource type="Texture2D" uid="uid://cyg0cq72kdmyx" path="res://Assets/player/arch_worm.png" id="5_k7gj7"]
 [ext_resource type="Texture2D" uid="uid://drus7r7ch5tdb" path="res://Assets/player/arch_worm_active.png" id="6_3p8dn"]
+[ext_resource type="Texture2D" uid="uid://d1sgds6pspw8f" path="res://Assets/player/arch_whitebubble_active.png" id="8_4t0q5"]
 [ext_resource type="Texture2D" uid="uid://btr5wjj7bvgg6" path="res://Assets/player/arch_bubble_active.png" id="8_56ars"]
 [ext_resource type="Texture2D" uid="uid://i6abnp5a7wfd" path="res://Assets/player/arch_bubble.png" id="9_0noi1"]
+[ext_resource type="Texture2D" uid="uid://cva42wgk74kh1" path="res://Assets/player/arch_whitebubble.png" id="9_cghgq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy8qv"]
 content_margin_left = 8.0
@@ -78,7 +80,7 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_56ars")
+"texture": ExtResource("8_4t0q5")
 }],
 "loop": true,
 "name": &"bubble_active",
@@ -86,10 +88,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("9_cghgq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfqei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("9_0noi1")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_56ars")
+}],
+"loop": true,
+"name": &"golden_active",
 "speed": 5.0
 }]
 
@@ -197,7 +218,7 @@ size_flags_vertical = 4
 tooltip_text = "die as fast as you can"
 
 [node name="arch_dead" type="AnimatedSprite2D" parent="HBoxContainer/PanelContainer"]
-position = Vector2(40, 37)
+position = Vector2(43, 37)
 sprite_frames = SubResource("SpriteFrames_7mtfp")
 
 [node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
@@ -206,7 +227,7 @@ layout_mode = 2
 tooltip_text = "reach 100 m"
 
 [node name="arch_worm" type="AnimatedSprite2D" parent="HBoxContainer/PanelContainer2"]
-position = Vector2(38, 38)
+position = Vector2(42, 38)
 sprite_frames = SubResource("SpriteFrames_nd1ab")
 
 [node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer"]
@@ -215,12 +236,17 @@ layout_mode = 2
 tooltip_text = "collect 500 Bubbles"
 
 [node name="arch_bubble" type="AnimatedSprite2D" parent="HBoxContainer/PanelContainer3"]
-position = Vector2(36, 38)
+position = Vector2(42, 38)
 sprite_frames = SubResource("SpriteFrames_5sarp")
 
 [node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
+tooltip_text = "collect 50 golden bubbles"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/PanelContainer4"]
+position = Vector2(42, 38)
+sprite_frames = SubResource("SpriteFrames_yfqei")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/AgainButton" to="." method="_on_again_button_pressed"]
