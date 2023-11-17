@@ -20,10 +20,10 @@ func _ready():
 		$HBoxContainer/PanelContainer3/arch_bubble.play("bubble_active")
 	
 	if (Global.goldenBubbleCount >= 50):
-		$HBoxContainer/PanelContainer4/AnimatedSprite2D.play("golden_active")
-		
-	print(Global.bubbleCount)
-	print(Global.goldenBubbleCount)
+		$HBoxContainer/PanelContainer4/golden_bubble.play("golden_active")
+	
+	$HBoxContainer/PanelContainer3.tooltip_text = "collected " + str(Global.bubbleCount) +"/500 bubbles";
+	$HBoxContainer/PanelContainer4.tooltip_text = "collected " + str(Global.goldenBubbleCount) +"/50 golden bubbles";
 	
 func _on_quit_button_pressed():
 	get_tree().quit()
